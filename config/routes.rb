@@ -5,5 +5,10 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
 
   resources :articles
+
+  get 'signup', to: 'users#new'
+
+  #post 'users', to: 'users#create' Or, as hown below
+  resources :users, except: [:new]
 end
  
