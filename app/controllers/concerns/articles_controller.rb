@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 5)
 
   end
 
@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
 
   end
 
-  def create
+  def create 
     #render plain: params[:article].inspect
     debugger
     @article = Article.new(article_params)
