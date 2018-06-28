@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   resources :articles
 
   get 'signup', to: 'users#new'
-
-  #post 'users', to: 'users#create' Or, as hown below
   resources :users, except: [:new]
+
+  post 'users', to: 'users#create' 
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
 end
  
