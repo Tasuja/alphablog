@@ -13,18 +13,18 @@ class CategoriesControllerTest <ActionController::TestCase
 
   test "should get new" do
     session[:user_id]= @user.id
-    get :now
+    get :new
     assert_response :success
   end
 
   test "should get show" do
-    get(:show, {'id' => @category.id})
+    get(:show, params: { 'id' => @category.id})
     assert_response :success
   end
 
-  test
+  test "should get create category" do
     assert_no_difference 'Category.count' do
-      post :create, category: { name: "sports"}
+      post :create, params: {category: { name: "sports"}}
     end
     assert_redirected_to categories_path
   end
